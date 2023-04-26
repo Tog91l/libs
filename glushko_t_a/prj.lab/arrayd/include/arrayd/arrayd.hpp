@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <sstream>
 #ifndef ARRAYD_ARRAYD_HPP_20230215
 #define ARRAYD_ARRAYD_HPP_20230215
 
@@ -12,7 +13,7 @@ public:
 	ArrayD& operator=(const ArrayD&);
 	~ArrayD();
 
-	explicit ArrayD(const std::ptrdiff_t size = 0);
+	
 
 	std::ptrdiff_t ssize() noexcept;
 
