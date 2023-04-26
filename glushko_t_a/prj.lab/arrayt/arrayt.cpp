@@ -50,13 +50,6 @@ void ArrayT<T>::resize(ptrdiff_t new_size) {
      
 template<typename T>
 	void ArrayT<T>::remove(const std::ptrdiff_t i) {
-		if (i < 0 || i > size()) {
-			throw std::invalid_argument("you don't need to use it");
-		}
-		resize(size() - 1);
-		for (int l = i + 1; i < size(); l++) {
-			memory[l] = memory[l - 1];
-		}
+		
 		return;
 	}
-
