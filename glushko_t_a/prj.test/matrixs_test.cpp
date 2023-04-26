@@ -4,7 +4,6 @@
 #include <matrixs/matrixs.hpp>
 
 TEST_CASE("[matrixs] - MatrixS ctor") {
-	MatrixS a(4, 4);
-	MatrixS b(4, 6);
+	
 	
 }
