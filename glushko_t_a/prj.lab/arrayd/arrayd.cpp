@@ -16,7 +16,7 @@ void ArrayD::resize(ptrdiff_t new_size) {
 		throw std::invalid_argument("ArrayD can't be less than zero");
 	}
 	if (new_size > 0) {
-		
+
 		double* memory_temp;
 		memory_temp = new double[new_size];
 		for (int i = 0; i < size; i++) {
@@ -31,9 +31,10 @@ void ArrayD::resize(ptrdiff_t new_size) {
 			memory[i] = memory_temp[i];
 		}
 		delete[] memory_temp;
+	}
 }
 
-	void ArrayD::insert(const std::ptrdiff_t i, const double num)
+	/*void ArrayD::insert(const std::ptrdiff_t i, const double num)
 	{
 		if (i<0 || i >size()) {
 			throw std::invalid_argument("you don't need to use it");
@@ -43,9 +44,9 @@ void ArrayD::resize(ptrdiff_t new_size) {
 			memory[l] = memory[l - 1];
 		}
 		memory[i] = num;
-	}
+	}*/
 
-	void ArrayD::remove(const std::ptrdiff_t i) {
+	/*void ArrayD::remove(const std::ptrdiff_t i) {
 		if (i < 0 || i > size()) {
 			throw std::invalid_argument("you don't need to use it");
 		}
@@ -53,5 +54,4 @@ void ArrayD::resize(ptrdiff_t new_size) {
 		for (int l = i + 1; i < size(); l++) {
 			memory[l] = memory[l - 1];
 		}
-	}
-
+	*/ 
