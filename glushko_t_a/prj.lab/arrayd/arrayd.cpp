@@ -11,6 +11,27 @@ ArrayD::~ArrayD(){
 	return;
 }
 
+ArrayD::ArrayD(const std::ptrdiff_t size_c) {
+
+}
+
+ArrayD::ArrayD(const std::ptrdiff_t size_c, const double num) {
+
+}
+
+std::ptrdiff_t ArrayD::ssize()const noexcept {
+	return size;
+}
+
+double& ArrayD::operator[](const std::ptrdiff_t i) {
+	return memory[i];
+}
+
+
+const double& ArrayD::operator[](const std::ptrdiff_t i)const {
+	return memory[i];
+}
+
 void ArrayD::resize(ptrdiff_t new_size) {
 	if (new_size < 0) {
 		throw std::invalid_argument("ArrayD can't be less than zero");
@@ -34,24 +55,16 @@ void ArrayD::resize(ptrdiff_t new_size) {
 	}
 }
 
-	/*void ArrayD::insert(const std::ptrdiff_t i, const double num)
-	{
-		if (i<0 || i >size()) {
-			throw std::invalid_argument("you don't need to use it");
-		}
-		resize(size() + 1);
-		for (int l = i + 1; i < size(); l++) {
-			memory[l] = memory[l - 1];
-		}
-		memory[i] = num;
-	}*/
+void ArrayD::insert(const std::ptrdiff_t n, const double num) {
 
-	/*void ArrayD::remove(const std::ptrdiff_t i) {
-		if (i < 0 || i > size()) {
-			throw std::invalid_argument("you don't need to use it");
-		}
-		resize(size() - 1);
-		for (int l = i + 1; i < size(); l++) {
-			memory[l] = memory[l - 1];
-		}
-	*/ 
+}
+
+
+void ArrayD::remove(const std::ptrdiff_t n) {
+
+}
+
+
+std::ostream& operator<<(std::ostream& ostrm, const ArrayD& rhs) {
+	return ostrm;
+}
