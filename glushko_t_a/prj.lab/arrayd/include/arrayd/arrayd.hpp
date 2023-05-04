@@ -8,38 +8,39 @@
 class ArrayD {
 public:
 	ArrayD();
-	ArrayD( const ptrdiff_t length);
+	explicit ArrayD( const std:: ptrdiff_t length);
 	ArrayD(const ArrayD&);
-	ArrayD& operator=(const ArrayD&);
+	ArrayD(const std::ptrdiff_t size_c, double num);
 	~ArrayD();
 
 	
 
-	std::ptrdiff_t ssize() noexcept;
+	std::ptrdiff_t ssize() const noexcept;
 
-	double& operator[](const ptrdiff_t i);
-	const double& operator[](const ptrdiff_t i)const; // i - index
+	double& operator[](const std:: ptrdiff_t i);
+	const double& operator[](const std::ptrdiff_t i)const; // i - index
 
 	
-	void resize( const ptrdiff_t new_size);
-	void insert(const ptrdiff_t i, const double num);
-	void remove(const ptrdiff_t i);
+	void resize( const std:: ptrdiff_t new_size);
+	void insert(const std:: ptrdiff_t, const double num);
+	void remove(const std:: ptrdiff_t);
 
-	bool operator ==(const ArrayD& rhs);
+	
 	
 
 	std::ostream writeTo(std::ostream& ostrm)const;
-	std::istream readFrom(std::istream& istrm);
+	
 
 private:
 	std:: ptrdiff_t size;
     double* memory;
 
+	static const char comm = ',' ;
 
 };
 
 std::ostream& operator<<(std::ostream& ostrm, const ArrayD& rhs);
-std::iostream& operator>>(std::istream& istrm, const ArrayD& rhs);
+
 
 
 bool operator==(const ArrayD& lhs, const ArrayD& rhs);
