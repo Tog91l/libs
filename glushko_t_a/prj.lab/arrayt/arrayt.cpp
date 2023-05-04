@@ -8,10 +8,38 @@ ArrayT<T>::ArrayT() {
 }
 
 template<typename T>
+ArrayT<T>::ArrayT(std::ptrdiff_t size_c) {
+
+}
+
+
+template<typename T>
+ArrayT<T>::ArrayT(std::ptrdiff_t size_c, T num) {
+
+}
+
+template<typename T>
 ArrayT<T>::~ArrayT() {
 	delete[] memory;
 	return;
 }
+
+template<typename T>
+std::ptrdiff_t ArrayT<T>::ssize()const {
+	return size;
+}
+
+template<typename T>
+T& ArrayT<T>::operator[](std::ptrdiff_t i) {
+	return memory[i];
+}
+
+
+template<typename T>
+const T& ArrayT<T>::operator[](std::ptrdiff_t i)const {
+	return memory[i];
+}
+
 template<typename T>
 void ArrayT<T>::resize(ptrdiff_t new_size) {
 	if (new_size < 0) {
@@ -36,20 +64,18 @@ void ArrayT<T>::resize(ptrdiff_t new_size) {
 	}
 }
 
-	/*void ArrayD::insert(const std::ptrdiff_t i, const double num)
-	{
-		if (i<0 || i >size()) {
-			throw std::invalid_argument("you don't need to use it");
-		}
-		resize(size() + 1);
-		for (int l = i + 1; i < size(); l++) {
-			memory[l] = memory[l - 1];
-		}
-		memory[i] = num;
-	}*/
-     
-template<typename T>
-	void ArrayT<T>::remove(const std::ptrdiff_t i) {
-		
-		return;
-	}
+template <typename T>
+void ArrayT<T>::insert(std::ptrdiff_t n, T num) {
+
+}
+
+template <typename T>
+void ArrayT<T>::remove(std::ptrdiff_t n) {
+
+}
+
+
+template <typename T>
+std::ostream& operator<<(std::ostream& ostrm, const ArrayT<T>& rhs) {
+	return rhs.writeTo(ostrm);
+}
