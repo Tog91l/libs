@@ -10,19 +10,37 @@ public:
 	using SizeType = std::tuple<std::ptrdiff_t, std::ptrdiff_t>;
 
 public:
-	explicit MatrixS(const SizeType& size = { 0,0 });
-	MatrixS(const std::ptrdiff_t rows, const std::ptrdiff_t colns);
+	MatrixS();
+	explicit MatrixS(const SizeType& size);
+	MatrixS( std::ptrdiff_t rows,  std::ptrdiff_t cols);
+	MatrixS(std::ptrdiff_t rows, std::ptrdiff_t cols, int num);
+	MatrixS(const MatrixS&);
+
 	~MatrixS();
 
-	MatrixS(const MatrixS& other);
-	MatrixS& operator=(const MatrixS& other);
+	
 
-	void resize(const SizeType& new_size);
-	void resize(const std::ptrdiff_t i, const std::ptrdiff_t j);
+	const int& at(const std::ptrdiff_t, const std::ptrdiff_t) const;
+	int& at(const std::ptrdiff_t, const std::ptrdiff_t);
+	const int& at(const SizeType)const;
+	int& at(const SizeType);
+
+	
+	std::ptrdiff_t NRows() const noexcept;
+	std::ptrdiff_t NCols() const noexcept;
+
+	MatrixS& operator=(const MatrixS&);
+
+
+
+	void resize(const SizeType&);
+	void resize(const std::ptrdiff_t, const std::ptrdiff_t);
+
+	SizeType ssize()const noexcept;
 
 private:
-	ptrdiff_t _rows;
-	ptrdiff_t _colns;
+	ptrdiff_t rows;
+	ptrdiff_t cols;
 	int* data;
 };
 
