@@ -36,3 +36,4 @@ private:
 
 	static const char comm = ',';
 };
+#endif
