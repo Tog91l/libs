@@ -36,3 +36,7 @@ public:
 	void scale(const Square& l, Square& w);
 	void intersect(const Square&l, const Square& w);
 };
+
+int main() {
+
+}
