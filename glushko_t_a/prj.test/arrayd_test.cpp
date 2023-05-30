@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 
-#include "arrayd.hpp"
+#include <arrayd/arrayd.hpp>
 bool test_resize() {
     bool result = true;
 
