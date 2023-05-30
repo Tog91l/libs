@@ -4,7 +4,7 @@ template<typename T>
 ArrayT<T>::ArrayT() {
 	memory = nullptr;
 	size = 0;
-	
+
 }
 
 template<typename T>
@@ -64,18 +64,61 @@ void ArrayT<T>::resize(ptrdiff_t new_size) {
 	}
 }
 
-template <typename T>
-void ArrayT<T>::insert(std::ptrdiff_t n, T num) {
-
+template<typename T>
+void ArrayT<T>::insert(std::ptrdiff_t index, T num) {
+	T* new_memory = new T[size + 1];
+	for (std::ptrdiff_t i = 0; i < index; ++i) {
+		new_memory[i] = memory[i];
+	}
+	new_memory[index] = num;
+	for (std::ptrdiff_t i = index + 1; i < size + 1; ++i) {
+		new_memory[i] = memory[i - 1];
+	}
+	delete[] memory;
+	memory = new_memory;
+	++size;
 }
 
-template <typename T>
-void ArrayT<T>::remove(std::ptrdiff_t n) {
 
+template<typename T>
+void ArrayT<T>::remove(std::ptrdiff_t index) {
+	T* new_memory = new T[size - 1];
+	for (std::ptrdiff_t i = 0; i < index; ++i) {
+		new_memory[i] = memory[i];
+	}
+	for (std::ptrdiff_t i = index + 1; i < size; ++i) {
+		new_memory[i - 1] = memory[i];
+	}
+	delete[] memory;
+	memory = new_memory;
+	--size;
 }
 
+template<typename T>
+std::ostream& ArrayT<T>::writeTo(std::ostream& ostrm) const {
+	for (std::ptrdiff_t i = 0; i < size; ++i) {
+		ostrm << memory[i];
+		if (i != size - 1) {
+			ostrm << comm << ' ';
+		}
+	}
+	return ostrm;
+}
 
-template <typename T>
+template<typename T>
 std::ostream& operator<<(std::ostream& ostrm, const ArrayT<T>& rhs) {
 	return rhs.writeTo(ostrm);
+}
+
+template<typename T>
+bool operator==(const ArrayT<T>& lhs, const ArrayT<T>& rhs) {
+	if (lhs.ssize() != rhs.ssize()) {
+		return false;
+	}
+	for (std::ptrdiff_t i = 0; i < lhs.ssize(); ++i) {
+		if (lhs[i] != rhs[i]) {
+			return false;
+		}
+	}
+	return true;
 }
