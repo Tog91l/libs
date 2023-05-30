@@ -27,7 +27,7 @@ public:
 
 	
 
-	std::ostream writeTo(std::ostream& ostrm)const;
+	std::ostream& writeTo(std::ostream& ostrm)const;
 	
 
 private:
